@@ -1,4 +1,4 @@
-package hw.ch01.A1;
+package hw.ch01;
 
 public class Book {
     private String name;
