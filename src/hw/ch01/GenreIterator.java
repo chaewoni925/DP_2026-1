@@ -25,6 +25,8 @@ public class GenreIterator implements Iterator<Book> {
         }
     }
 
+    //override는 부모 클래스의 메서드를 자식 클래스에서 재정의할 때 사용하는 어노테이션이다. 
+    //(이름만 같고 알맹이는 다름, 매개변수랑 반환타입도 같아야 한다.) 
     @Override
     public boolean hasNext() {
         return index < maxIndex;

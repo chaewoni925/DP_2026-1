@@ -1,7 +1,18 @@
-package ch03.Sample;
+package hw.ch03;
 
-public abstract class AbstractDisplay {
+public abstract class AbstractDisplay{
     // open, print, close는 하위 클래스에 구현을 맡기는 추상 메소드 
+
+    private int repeatCount;
+
+    public AbstractDisplay() {
+        this.repeatCount = 5;
+    }
+
+    public AbstractDisplay(int repeatCount) {
+        this.repeatCount = repeatCount;
+    }
+
     public abstract void open();
     public abstract void print();
     public abstract void close();
@@ -10,7 +21,7 @@ public abstract class AbstractDisplay {
     // 큰 틀(흐름,구조)을 제공함 -> 템플릿 메소드 패턴
     public final void display() {
         open();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < repeatCount; i++) {
             print();
         }
         close();

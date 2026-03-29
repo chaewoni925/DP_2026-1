@@ -6,7 +6,8 @@ public class Book {
     private int year;      // 출판연도 (예: 2008)
     private double price;  // 가격 (단위: 원, 예: 30000.0)
 
-   
+   //매개변수 이름과 필드 이름이 같을 때는 this.필드명으로 구분한다. 
+   // 매개변수 이름과 필드 이름이 다르면 this.필드명으로 구분할 필요가 없다.
     public Book(String name) {
         this.name = name;
     }

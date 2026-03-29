@@ -1,5 +1,7 @@
 package hw.ch01;
 
+//Iterator: hasNext(), next() 메서드를 구현하는 인터페이스
+
 import java.util.Iterator;
 
 public class Main {
