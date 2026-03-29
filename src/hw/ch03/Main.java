@@ -1,6 +1,7 @@
 package hw.ch03;
 
 public class Main {
+    
     public static void main(String[] args) {
         // 'H'를 가진 CharDisplay 인스턴스를 하나 만든다 
         //AbstractDisplay d1 = new CharDisplay('H');
@@ -10,7 +11,7 @@ public class Main {
 
         //d1.display();
         //d2.display();
-
+        System.out.print("20240841 이채원");
         AbstractDisplay d1 = new CharDisplay('X',3);
         AbstractDisplay d2= new StringDisplay("Test",7);
 
