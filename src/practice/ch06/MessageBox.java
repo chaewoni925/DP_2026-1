@@ -1,6 +1,6 @@
 package practice.ch06;
 
-import ch06.framework.Product;
+import practice.ch06.framework.Product;
 
 public class MessageBox implements Product {
     private char decochar;
@@ -24,6 +24,7 @@ public class MessageBox implements Product {
     }
 
     @Override
+    //복제메소드 
     public Product createCopy() {
         Product p = null;
         try {

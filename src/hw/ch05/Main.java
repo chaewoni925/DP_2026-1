@@ -11,7 +11,8 @@ public class Main {
  
         logger1a.log("Static Message 1"); 
         logger1b.log("Static Message 2"); 
-            
+        
+        //주소값비교
         if (logger1a == logger1b) { 
             System.out.println("V 동일한 인스턴스"); 
         } else { 
