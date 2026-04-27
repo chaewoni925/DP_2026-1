@@ -12,7 +12,7 @@ public class Main {
 
         File file = new File("Composite.java", 100);
         youngjin.add(file);
-        rootdir.printList();
+        rootdir.printList(); // 딴 애들 추가적으로 계속 호출
 
         System.out.println();
         System.out.println("file = " + file.getFullName());

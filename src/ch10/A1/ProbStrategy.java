@@ -42,6 +42,7 @@ public class ProbStrategy implements Strategy {
 
     @Override
     public void study(boolean win) {
+        
         if (win) {
             history[prevHandValue][currentHandValue]++;
         } else {

@@ -17,7 +17,7 @@ public class IDCard extends Product {
         System.out.println(this + "을 사용합니다.");
     }
 
-    @Override
+    @Override //용도: 객체 전체를 대표하는 문자열 설명서를 만듭니다.
     public String toString() {
         return "[IDCard:" + owner + "(" + serial + ")]";
     }

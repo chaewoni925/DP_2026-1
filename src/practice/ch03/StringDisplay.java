@@ -1,6 +1,6 @@
 package practice.ch03;
 
-public class StringDisplay extends AbstractDisplay {
+public class StringDisplay implements AbstractDisplay {
     private String string;  // 표시해야 하는 문자열 
     private int width;      // 문자열의 길이
 

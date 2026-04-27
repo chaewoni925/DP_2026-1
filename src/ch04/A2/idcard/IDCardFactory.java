@@ -18,6 +18,8 @@ public class IDCardFactory extends Factory {
 
     @Override
     protected void registerProduct(Product product) {
+        // product는 Product 타입이지만, createProduct에서 IDCard 타입으로 만들어졌기 때문에, IDCard로 형변환이 가능하다.
+        //product를 부르니 toString()이 호출되고, IDCard의 toString()이 호출된다.
         System.out.println(product + "을 등록했습니다.");
     }
 

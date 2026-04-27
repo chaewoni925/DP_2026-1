@@ -5,12 +5,12 @@ import ch06.A2.framework.Product;
 public class MessageBox implements Product {
     private char decochar;
 
-    public MessageBox(char decochar) {
+    public MessageBox(char decochar) { // 기존 코드
         this.decochar = decochar;
     }
 
     // 복사 생성자 
-    public MessageBox(MessageBox prototype) {
+    public MessageBox(MessageBox prototype) { // 새로 만든 코드
         this.decochar = prototype.decochar;
     }
 
