@@ -3,7 +3,6 @@ package ch19.Sample;
 public class Main {
     public static void main(String[] args) {
         // GUI 생성
-        System.out.println("20240841 이채원");
         SafeFrame frame = new SafeFrame("금고 경비 시스템");
 
         // 시계 역할 구현
