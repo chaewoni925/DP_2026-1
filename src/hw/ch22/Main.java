@@ -1,40 +1,47 @@
-package ch22.A1;
+package hw.ch22;
 
-import ch22.A1.command.*;
-import ch22.A1.drawer.*;
+import hw.ch22.command.*;
+import hw.ch22.drawer.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class Main extends JFrame implements MouseMotionListener, WindowListener {
-    // 그리기 이력 
+    // 그리기 이력
     private MacroCommand history = new MacroCommand();
-    // 그리는 영역 
+    // 그리는 영역
     private DrawCanvas canvas = new DrawCanvas(400, 400, history);
-    // 삭제 버튼 
-    private JButton clearButton  = new JButton("clear");
-    // 빨간 버튼 
-    private JButton redButton  = new JButton("red");
+    // 삭제 버튼
+    private JButton clearButton = new JButton("clear");
+    // 빨간 버튼
+    private JButton redButton = new JButton("red");
     // 초록 버튼
-    private JButton greenButton  = new JButton("green");
+    private JButton greenButton = new JButton("green");
     // 파란 버튼
-    private JButton blueButton  = new JButton("blue");
+    private JButton blueButton = new JButton("blue");
+    // Undo 버튼 (Step 6)
+    private JButton undoButton = new JButton("undo");
+    // Redo 버튼 (Step 6)
+    private JButton redoButton = new JButton("redo");
 
-    // 생성자 
+    // 생성자
     public Main(String title) {
         super(title);
 
         this.addWindowListener(this);
         canvas.addMouseMotionListener(this);
+
+        // Clear: history 전부 삭제 후 초기화 (commandsForRedo도 clear() 내부에서 처리됨)
         clearButton.addActionListener(e -> {
             history.clear();
             canvas.init();
             canvas.repaint();
         });
+
         redButton.addActionListener(e -> {
-            Command cmd = new ColorCommand(canvas, Color.red); // .색깔 명령 객체 생성
+            Command cmd = new ColorCommand(canvas, Color.red);
             history.append(cmd);
-            cmd.execute(); 색깔 명령 실행
+            cmd.execute();
         });
         greenButton.addActionListener(e -> {
             Command cmd = new ColorCommand(canvas, Color.green);
@@ -47,11 +54,26 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
             cmd.execute();
         });
 
+        // Undo 버튼 (Step 6)
+        undoButton.addActionListener(e -> {
+            history.undo();
+            canvas.repaint();
+        });
+
+        // Redo 버튼 (Step 6)
+        redoButton.addActionListener(e -> {
+            history.redo();
+            canvas.repaint();
+        });
+
         Box buttonBox = new Box(BoxLayout.X_AXIS);
         buttonBox.add(clearButton);
         buttonBox.add(redButton);
         buttonBox.add(greenButton);
         buttonBox.add(blueButton);
+        buttonBox.add(undoButton);
+        buttonBox.add(redoButton);
+
         Box mainBox = new Box(BoxLayout.Y_AXIS);
         mainBox.add(buttonBox);
         mainBox.add(canvas);

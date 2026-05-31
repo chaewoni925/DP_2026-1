@@ -1,7 +1,8 @@
-package ch22.A1;
+package hw.ch22;
 
-import ch22.A1.command.*;
-import ch22.A1.drawer.*;
+import ch22.Sample.command.*;
+import ch22.Sample.drawer.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -11,14 +12,8 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
     private MacroCommand history = new MacroCommand();
     // 그리는 영역 
     private DrawCanvas canvas = new DrawCanvas(400, 400, history);
-    // 삭제 버튼 
+    // 삭제 버튼
     private JButton clearButton  = new JButton("clear");
-    // 빨간 버튼 
-    private JButton redButton  = new JButton("red");
-    // 초록 버튼
-    private JButton greenButton  = new JButton("green");
-    // 파란 버튼
-    private JButton blueButton  = new JButton("blue");
 
     // 생성자 
     public Main(String title) {
@@ -28,30 +23,11 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
         canvas.addMouseMotionListener(this);
         clearButton.addActionListener(e -> {
             history.clear();
-            canvas.init();
             canvas.repaint();
-        });
-        redButton.addActionListener(e -> {
-            Command cmd = new ColorCommand(canvas, Color.red); // .색깔 명령 객체 생성
-            history.append(cmd);
-            cmd.execute(); 색깔 명령 실행
-        });
-        greenButton.addActionListener(e -> {
-            Command cmd = new ColorCommand(canvas, Color.green);
-            history.append(cmd);
-            cmd.execute();
-        });
-        blueButton.addActionListener(e -> {
-            Command cmd = new ColorCommand(canvas, Color.blue);
-            history.append(cmd);
-            cmd.execute();
         });
 
         Box buttonBox = new Box(BoxLayout.X_AXIS);
         buttonBox.add(clearButton);
-        buttonBox.add(redButton);
-        buttonBox.add(greenButton);
-        buttonBox.add(blueButton);
         Box mainBox = new Box(BoxLayout.Y_AXIS);
         mainBox.add(buttonBox);
         mainBox.add(canvas);
@@ -63,7 +39,8 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
 
     // MouseMotionListener용
     @Override
-    public void mouseMoved(MouseEvent e) {}
+    public void mouseMoved(MouseEvent e) {
+    }
 
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -72,7 +49,7 @@ public class Main extends JFrame implements MouseMotionListener, WindowListener 
         cmd.execute();
     }
 
-    // WindowListener용
+    // WindowListener용 
     @Override
     public void windowClosing(WindowEvent e) {
         System.exit(0);
